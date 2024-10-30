@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <section id="doctors" class="doctors section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Patient</h2>
+      </div><!-- End Section Title -->
+
+    <table class="table table-bordered">
+     <thead> <tr>
+       <th>Name</th>
+        <th>Email</th>
+        <th>Phone number</th>
+       <th>Address</th>
+        <th>Date of Birth</th>
+         <th>gender</th>
+         <th>Medical History</th>
+      </tr></thead>
+      <tbody>
+      {% for i in patient %}
+        <tr>
+          <td>{{i.first_name}} {{i.last_name}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.phone_number}}</td>
+          <td>{{i.address}}</td>
+          <td>{{i.date_of_birth}}</td>
+          <td>{{i.gender}}</td>
+            <td>{{i.medical_history}}</td>
+ <td><a href="{% url 'delete_patient' i.id %}" class="btn btn-primary">delete</a></td>
+        </tr>
+      </tbody> {% endfor %}
+    </table></div>
+
+{% endblock %}

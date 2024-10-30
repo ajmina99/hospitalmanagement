@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- Doctors Section -->
+    <section id="doctors" class="doctors section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Doctors</h2>
+      </div><!-- End Section Title -->
+
+
+       <div class="container border-1 mt-5 p-5 rounded-3 shadow">
+           <form class="flex-end" method="POST" action="{% url 'search' %}">
+               {% csrf_token %}
+        <input type="search" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    <table class="table table-bordered">
+     <thead> <tr>
+       <th>Image</th>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Email</th>
+        <th>Phone number</th>
+       <th>Experience</th>
+        <th>Actions</th>
+      </tr></thead>
+      <tbody>
+      {% for i in doctor %}
+        <tr>
+          <td><img src="{{i.image.url}}" height="150px" width="150px"></td>
+          <td>Dr.{{i.first_name}} {{i.last_name}}</td>
+          <td>{{i.specialization}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.phone_number}}</td>
+          <td>{{i.experience_years}}</td>
+
+        <td><a href="{% url 'edit' i.id %}" class="btn btn-primary">edit</a>
+        <a href="{% url 'delete' i.id %}" class="btn btn-primary">delete</a></td>
+        </tr>
+      </tbody> {% endfor %}
+    </table></div>
+
+
+
+
+{% endblock %}

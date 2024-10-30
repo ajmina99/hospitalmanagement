@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<center>
+        <div class="container mb-3"><h2 class="text-primary">Add Doctor</h2>
+<form method="post" enctype="multipart/form-data" class="row g-3">
+    {% csrf_token %}
+<div class="col-md-6">
+  <label class="form-label">First_name</label>
+  <input type="text" class="form-control" name="f" placeholder="Enter first_name">
+</div>
+    <div class="col-md-6">
+  <label class="form-label">Last_name</label>
+  <input type="text" class="form-control" name="l" placeholder="Enter last_name">
+</div>
+    <div class="col-md-6">
+  <label class="form-label">E-mail</label>
+  <input type="text" class="form-control" name="e" placeholder="Enter email">
+</div>
+   <div class="col-md-6">
+  <label class="form-label">Phone number</label>
+  <input type="text" class="form-control" name="p" placeholder="Enter phone number">
+</div>
+  <div class="col-md-6">
+      <label class="form-label">Specialization</label>
+
+  <select class="form-select form-select-auto" name="s" aria-label=".form-select-sm example">
+  <option selected></option>
+  <option value="Cardiologist">Cardiologist</option>
+  <option value="Dermatologist">Dermatologist</option>
+  <option value="Neurologist">Neurologist</option>
+      <option value="Pediatrician">Pediatrician</option>
+</select>
+</div>
+   <div class="col-md-6">
+  <label class="form-label">Experience</label>
+  <input type="number" class="form-control" name="y" placeholder="Enter year">
+</div>
+     <div class="col-md-6">
+  <label class="form-label">Image</label>
+  <input type="file" class="form-control" name="i" >
+</div>
+   <div class="d-md-block mb-3">
+  <input type="submit" class="btn btn-primary">
+</div>
+
+</form></div></center>
+{% endblock %}

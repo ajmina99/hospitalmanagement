@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<center>
+<h2 class="mt-3 mb-3">Edit details...</h2>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+
+<input type="submit">
+</form>
+    </center>
+
+
+{% endblock %}
